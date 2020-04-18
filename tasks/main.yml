@@ -12,6 +12,3 @@
   changed_when: "'no' not in rebootcheck.stdout"
   notify:
     - reboot machine
-        
-
-
