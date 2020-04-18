@@ -1,0 +1,17 @@
+---
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: check reboot needed
+  shell: ls /var/run/reboot-required 2> /dev/null && echo bao || echo no
+  args:
+    executable: /bin/bash
+  changed_when: "'no' not in rebootcheck.stdout"
+  notify:
+    - reboot machine
+        
+
+
