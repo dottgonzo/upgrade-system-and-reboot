@@ -9,6 +9,7 @@
   shell: ls /var/run/reboot-required 2> /dev/null && echo bao || echo no
   args:
     executable: /bin/bash
+  register: rebootcheck
   changed_when: "'no' not in rebootcheck.stdout"
   notify:
     - reboot machine
