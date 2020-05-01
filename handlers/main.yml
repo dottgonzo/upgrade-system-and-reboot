@@ -1,4 +1,4 @@
 ---
 - name: reboot machine
   reboot:
-    reboot_timeout: 180
+    reboot_timeout: 360
